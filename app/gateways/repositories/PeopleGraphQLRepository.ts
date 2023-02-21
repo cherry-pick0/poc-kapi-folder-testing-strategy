@@ -1,5 +1,5 @@
 import { GetPeopleResponse } from './../responses/index';
-import IPeopleRepo from "../../../domain/services/getPeople";
+import IPeopleRepo from "../../../domain/services/ServiceGetPeople";
 import GraphQLProxy from "./GraphQLProxy";
 import { gql } from "graphql-request";
 
