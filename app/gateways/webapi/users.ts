@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   handleRequest(res, async () => {
     let service = new ServiceGetUsers()
-    service.users_repository = new UsersGraphQLRepository()
+    service.usersRepository = new UsersGraphQLRepository()
     let users = service.execute()
     return users;
   });

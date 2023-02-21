@@ -6,13 +6,15 @@
   "scripts": {
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js",
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
     "zod": "^3.20.6"
   },
   "devDependencies": {

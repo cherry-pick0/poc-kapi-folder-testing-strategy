@@ -1,12 +1,12 @@
 abstract class IUsersRepo {
-    abstract getUsers(): [];
+    abstract getUsers(): Promise<[]>;
 }
 
 class ServiceGetUsers {
-    users_repository: IUsersRepo
+    usersRepository: IUsersRepo
 
     execute() {
-        return this.users_repository.getUsers()
+        return this.usersRepository.getUsers()
     }
 }
 
