@@ -1,13 +1,13 @@
-import IUsersRepo from "../../../domain/services/getUsers";
+import IPeopleRepo from "../../../domain/services/getPeople";
 import GraphQLProxy from "./GraphQLProxy";
 import { gql } from "graphql-request";
 
-class UsersGraphQLRepository extends IUsersRepo {
+class PeopleGraphQLRepository extends IPeopleRepo {
   constructor() {
     super();
   }
 
-  getUsers = async (): Promise<[]> => {
+  getPeople = async (): Promise<[]> => {
     const query = gql`
       query ExampleQuery {
         allPeople {
@@ -23,4 +23,4 @@ class UsersGraphQLRepository extends IUsersRepo {
   };
 }
 
-export default UsersGraphQLRepository;
+export default PeopleGraphQLRepository;
