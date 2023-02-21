@@ -1,3 +1,4 @@
+import { GetPeopleResponse } from './../responses/index';
 import IPeopleRepo from "../../../domain/services/getPeople";
 import GraphQLProxy from "./GraphQLProxy";
 import { gql } from "graphql-request";
@@ -7,7 +8,7 @@ class PeopleGraphQLRepository extends IPeopleRepo {
     super();
   }
 
-  getPeople = async (): Promise<[]> => {
+  getPeople = async (): Promise<GetPeopleResponse> => {
     const query = gql`
       query ExampleQuery {
         allPeople {

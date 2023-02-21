@@ -1,5 +1,7 @@
+import { GetPeopleResponse } from '../../app/gateways/responses/index';
+
 abstract class IPeopleRepo {
-    abstract getPeople(): Promise<[]>;
+    abstract getPeople(): Promise<GetPeopleResponse>;
 }
 
 class ServiceGetPeople {
