@@ -1,9 +1,8 @@
-import ServiceGetPeople from "./ServiceGetPeople";
+import {ServiceGetPeople} from "./ServiceGetPeople";
 import PeopleGraphQLRepository from "../../app/gateways/repositories/PeopleGraphQLRepository";
 
 const getPeople = (args?) => {
-  let service = new ServiceGetPeople();
-  service.peopleRepository = new PeopleGraphQLRepository();
+  let service = ServiceGetPeople(PeopleGraphQLRepository);
   return service;
 };
 

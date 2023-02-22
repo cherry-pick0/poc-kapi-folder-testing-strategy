@@ -1,15 +1,13 @@
-import { GetPeopleResponse } from '../../app/gateways/responses/index';
+import { GetPeopleResponse } from "../../app/gateways/responses/index";
 
-abstract class IPeopleRepo {
-    abstract getPeople(): Promise<GetPeopleResponse>;
-}
+export type IPeopleRepo = {
+  getPeople(): Promise<GetPeopleResponse>;
+};
 
-class ServiceGetPeople {
-    peopleRepository: IPeopleRepo
+export const ServiceGetPeople = (peopleRepository: IPeopleRepo) => {
+  const execute = () => {
+    return peopleRepository.getPeople();
+  };
 
-    execute() {
-        return this.peopleRepository.getPeople()
-    }
-}
-
-export default ServiceGetPeople
+  return { execute: execute };
+};

@@ -1,5 +1,5 @@
 import express from "express";
-import ServiceGetPeople from "../../../domain/services/ServiceGetPeople";
+import {ServiceGetPeople} from "../../../domain/services/ServiceGetPeople";
 import handleRequest from "../../utils/handleRequest";
 import { GetPeopleResponse } from '../responses/index';
 import ServiceFactory from "../../../domain/services/ServiceFactory";
