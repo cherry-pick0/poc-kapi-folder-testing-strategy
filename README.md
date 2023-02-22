@@ -9,3 +9,12 @@ PoC: KAPI Folder structure &amp; Testing strategy
 
     # Tests
     npm run test
+
+## Notes
+
+* try out mocha&chai and jest + compare (write couple of tests for the same functionality)
+* how to use zod with ddd?
+* end to end testing == integration tests
+* contract testing == acceptance tests
+* naming: when to use cammelCase, PascalCase, snake_case?
+* check BDD (no PoC)
