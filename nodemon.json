@@ -1,8 +1,4 @@
 {
-  "watch": [
-    "app",
-    "domain",
-    ".env"
-  ],
+  "watch": ["app", "domain", ".env"],
   "ext": "js,ts,tsx,json"
 }

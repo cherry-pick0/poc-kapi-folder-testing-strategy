@@ -1,13 +1,13 @@
-import { GetPeopleResponse } from "../../app/gateways/responses/index";
+import { GetPeopleResponse } from "../../app/gateways/responses/index"
 
 export type IPeopleRepo = {
-  getPeople(): Promise<GetPeopleResponse>;
-};
+  getPeople(): Promise<GetPeopleResponse>
+}
 
 export const ServiceGetPeople = (peopleRepository: IPeopleRepo) => {
   const execute = () => {
-    return peopleRepository.getPeople();
-  };
+    return peopleRepository.getPeople()
+  }
 
-  return { execute: execute };
-};
+  return { execute: execute }
+}

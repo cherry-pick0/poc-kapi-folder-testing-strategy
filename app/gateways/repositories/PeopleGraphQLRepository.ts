@@ -1,9 +1,9 @@
-import { GetPeopleResponse } from "./../responses/index";
-import { IPeopleRepo } from "../../../domain/services/ServiceGetPeople";
-import GraphQLProxy from "../../proxies/GraphQLProxy";
-import { gql } from "graphql-request";
+import { GetPeopleResponse } from "./../responses/index"
+import { IPeopleRepo } from "../../../domain/services/ServiceGetPeople"
+import GraphQLProxy from "../../proxies/GraphQLProxy"
+import { gql } from "graphql-request"
 
-type PeopleRepo = IPeopleRepo;
+type PeopleRepo = IPeopleRepo
 
 const PeopleGraphQLRepository: PeopleRepo = {
   getPeople: async (): Promise<GetPeopleResponse> => {
@@ -16,10 +16,10 @@ const PeopleGraphQLRepository: PeopleRepo = {
           }
         }
       }
-    `;
-    const proxy = GraphQLProxy();
-    return await proxy.request(query);
+    `
+    const proxy = GraphQLProxy()
+    return await proxy.request(query)
   },
-};
+}
 
-export default PeopleGraphQLRepository;
+export default PeopleGraphQLRepository
