@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get("/", async (req, res: GetPeopleResponse) => {
   handleRequest(res, async () => {
-    let service = ServiceFactory.instanceFor(ServiceGetPeople)
+    let service = ServiceFactory().instanceFor(ServiceGetPeople)
     let response = await service.execute()
     return response.allPeople.people
   })

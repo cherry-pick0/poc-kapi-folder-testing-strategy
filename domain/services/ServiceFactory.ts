@@ -10,15 +10,17 @@ let factories = {
   ServiceGetPeople: getPeople,
 }
 
-class ServiceFactory {
-  static instanceFor = (serviceClass, ...args: any[]) => {
+export const ServiceFactory = () => {
+  const instanceFor = (serviceMethod, ...args: any[]) => {
     try {
-      let serviceInstance = factories[serviceClass.name](args)
+      let serviceInstance = factories[serviceMethod.name](args)
       return serviceInstance
     } catch (error) {
       console.log(error)
     }
   }
+
+  return { instanceFor: instanceFor }
 }
 
 export default ServiceFactory
