@@ -5,4 +5,7 @@ PoC: KAPI Folder structure &amp; Testing strategy
 ## Instructions
 
     npm install
-    npm run start
+    npm run dev
+
+    # Tests
+    npm run test

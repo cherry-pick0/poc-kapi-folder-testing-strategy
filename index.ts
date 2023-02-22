@@ -1,5 +1,5 @@
 import express, {json} from "express";
-import routes from "./app/gateways/webapi";
+import routes from "./app/gateways/webAPI";
 
 var app = express();
 app.use(json())
