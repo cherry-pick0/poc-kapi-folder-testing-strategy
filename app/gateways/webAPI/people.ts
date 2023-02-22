@@ -6,10 +6,10 @@ import ServiceFactory from "../../../domain/services/ServiceFactory"
 
 const router = express.Router()
 
-router.get("/", async (req, res: GetPeopleResponse) => {
+router.get("/", async (req, res) => {
   handleRequest(res, async () => {
     let service = ServiceFactory().instanceFor(ServiceGetPeople)
-    let response = await service.execute()
+    let response: GetPeopleResponse = await service.execute()
     return response.allPeople.people
   })
 })
