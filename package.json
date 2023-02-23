@@ -7,7 +7,7 @@
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js",
     "dev": "nodemon index.ts",
-    "test.mocha": "mocha '**/*Test*.mocha.ts'",
+    "test.mocha": "mocha '**/*.mocha.ts'",
     "test.jest": "jest --testMatch='**/*.jest.ts'"
   },
   "author": "",
@@ -28,6 +28,7 @@
     "@types/node": "^18.14.0",
     "babel-jest": "^29.4.3",
     "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "jest": "^29.4.3",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.20",
