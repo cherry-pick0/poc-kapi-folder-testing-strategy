@@ -1,4 +1,5 @@
 import { expect } from "chai"
+import { describe } from "mocha"
 import { GetPeopleResponse } from "../../app/gateways/responses"
 import { ServiceGetPeople, IPeopleRepo } from "./ServiceGetPeople"
 import Person from "../entities/Person"

@@ -1,4 +1,5 @@
 import chai, { expect } from "chai"
+import { describe } from "mocha"
 import chaiHttp from "chai-http"
 
 const app = require("../../../index")

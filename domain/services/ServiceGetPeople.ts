@@ -9,5 +9,7 @@ export const ServiceGetPeople = (peopleRepository: IPeopleRepo) => {
     return peopleRepository.getPeople()
   }
 
-  return { execute: execute }
+  return {
+    execute: execute,
+  }
 }
