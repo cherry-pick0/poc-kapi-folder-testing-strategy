@@ -4,8 +4,8 @@ import chaiHttp from "chai-http"
 const app = require("../../../index")
 chai.use(chaiHttp)
 
-describe("GET /people", () => {
-  it("List all people", async () => {
+describe("People test flow", () => {
+  it("tests GET /people endpoint", async () => {
     const response = await chai.request(app).get("/people")
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('array')

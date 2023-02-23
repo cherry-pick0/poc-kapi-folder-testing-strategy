@@ -3,7 +3,7 @@ import request from "supertest"
 const app = require("../../../index")
 
 describe("People test flow", () => {
-  it("tests /people endpoint", async () => {
+  it("tests GET /people endpoint", async () => {
     const response = await request(app).get("/people")
     expect(response.statusCode).toBe(200)
     expect(Array.isArray(response.body)).toBeTruthy()
