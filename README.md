@@ -8,7 +8,8 @@ PoC: KAPI Folder structure &amp; Testing strategy
     npm run dev
 
     # Tests
-    npm run test
+    npm run test.mocha
+    npm run test.jest
 
 ## Notes
 
