@@ -9,7 +9,7 @@ describe("Test service for adding a Person", () => {
         return {
           id: person.id,
           name: person.name,
-          email_address: person.emailAddress.address,
+          email_address: person.emailAddress?.address,
         }
       },
     }
