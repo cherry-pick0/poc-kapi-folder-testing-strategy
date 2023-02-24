@@ -1,6 +1,7 @@
 import { ServiceGetPeople } from "./ServiceGetPeople"
 import PeopleGraphQLRepository from "../../app/gateways/repositories/PeopleGraphQLRepository"
 import { ServiceAddPerson } from "./ServiceAddPerson"
+import PeopleRedisRepository from '../../app/gateways/repositories/PeopleRedisRepository';
 
 const getPeople = (args?) => {
   let service = ServiceGetPeople(PeopleGraphQLRepository)
@@ -8,7 +9,7 @@ const getPeople = (args?) => {
 }
 
 const addPerson = (args?) => {
-  let service = ServiceAddPerson(PeopleGraphQLRepository)
+  let service = ServiceAddPerson(PeopleRedisRepository)
   return service
 }
 

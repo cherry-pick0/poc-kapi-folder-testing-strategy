@@ -29,6 +29,7 @@ const PeopleGraphQLRepository: PeopleRepos = {
       name: person.name,
       email_address: "fakeEmail",
     }
+
     return data
   },
 }
