@@ -2,8 +2,13 @@ import { GetPeopleResponse } from "./../responses/index"
 import { GetPeopleIPeopleRepo } from "../../../domain/services/ServiceGetPeople"
 import GraphQLProxy from "../../proxies/GraphQLProxy"
 import { gql } from "graphql-request"
+import { AddPersonIPeopleRepo } from "../../../domain/services/ServiceAddPerson"
+import { AddPersonResponse } from "../responses/index"
+import Person from "../../../domain/entities/Person"
 
-const PeopleGraphQLRepository: GetPeopleIPeopleRepo = {
+type PeopleRepos = AddPersonIPeopleRepo & GetPeopleIPeopleRepo
+
+const PeopleGraphQLRepository: PeopleRepos = {
   getPeople: async (): Promise<GetPeopleResponse> => {
     const query = gql`
       query ExampleQuery {
@@ -17,6 +22,14 @@ const PeopleGraphQLRepository: GetPeopleIPeopleRepo = {
     `
     const proxy = GraphQLProxy()
     return await proxy.request(query)
+  },
+  addPerson: async (person: Person): Promise<AddPersonResponse> => {
+    const data: AddPersonResponse = {
+      id: 0,
+      name: person.name,
+      email_address: "fakeEmail",
+    }
+    return data
   },
 }
 

@@ -6,7 +6,7 @@ export type AddPersonIPeopleRepo = {
 }
 
 export const ServiceAddPerson = (peopleRepository: AddPersonIPeopleRepo) => {
-  const execute = (person: Person) => {
+  const execute = async (person: Person) => {
     return peopleRepository.addPerson(person)
   }
 
