@@ -5,3 +5,9 @@ export type GetPeopleResponse = {
     people: Person[]
   }
 }
+
+export type AddPersonResponse = {
+  id: number | undefined
+  name: string,
+  email_address: string | undefined
+}

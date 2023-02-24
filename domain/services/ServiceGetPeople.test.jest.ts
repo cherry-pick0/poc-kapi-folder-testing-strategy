@@ -1,10 +1,10 @@
 import { GetPeopleResponse } from "../../app/gateways/responses"
-import { ServiceGetPeople, IPeopleRepo } from "./ServiceGetPeople"
+import { ServiceGetPeople, GetPeopleIPeopleRepo } from "./ServiceGetPeople"
 import Person from "../entities/Person"
 
 describe("Test service for getting a list of people", () => {
   it("tests happy path for getting people", async () => {
-    const testPeopleRepo: IPeopleRepo = {
+    const testPeopleRepo: GetPeopleIPeopleRepo = {
       getPeople: async (): Promise<GetPeopleResponse> => {
         let person: Person = { id: 1, name: "Rick" }
         return { allPeople: { people: [person] } }

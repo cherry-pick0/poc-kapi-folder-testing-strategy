@@ -1,6 +1,6 @@
 type EmailAddress = {
-  address: String
-  display_name: String
+  address: string
+  display_name: string
 }
 
 export default EmailAddress

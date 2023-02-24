@@ -1,8 +1,8 @@
 import EmailAddress from "../valueObjects/EmailAddress"
 
 type Person = {
-  id: number
-  name: String
+  id?: number
+  name: string
   emailAddress?: EmailAddress
 }
 

@@ -1,10 +1,10 @@
 import { GetPeopleResponse } from "../../app/gateways/responses/index"
 
-export type IPeopleRepo = {
+export type GetPeopleIPeopleRepo = {
   getPeople(): Promise<GetPeopleResponse>
 }
 
-export const ServiceGetPeople = (peopleRepository: IPeopleRepo) => {
+export const ServiceGetPeople = (peopleRepository: GetPeopleIPeopleRepo) => {
   const execute = () => {
     return peopleRepository.getPeople()
   }
