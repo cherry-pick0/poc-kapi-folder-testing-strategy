@@ -2,7 +2,7 @@ import { expect } from "chai"
 import { describe } from "mocha"
 import { GetPeopleResponse } from "../../app/gateways/responses"
 import { ServiceGetPeople, GetPeopleIPeopleRepo } from "./ServiceGetPeople"
-import Person from "../entities/Person"
+import { Person } from "../entities/Person"
 
 describe("Test service for getting a list of people", () => {
   it("tests happy path for getting people", async () => {

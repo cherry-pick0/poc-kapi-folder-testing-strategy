@@ -3,6 +3,7 @@ import { ServiceAddPerson } from "./ServiceAddPerson"
 import { ServiceDeletePerson } from "./ServiceDeletePerson"
 import PeopleRedisRepository from "../../app/gateways/repositories/PeopleRedisRepository"
 
+
 const getPeople = (args?) => {
   let service = ServiceGetPeople(PeopleRedisRepository)
   return service

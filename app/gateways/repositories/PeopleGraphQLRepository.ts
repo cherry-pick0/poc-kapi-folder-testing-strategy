@@ -4,7 +4,7 @@ import GraphQLProxy from "../../proxies/GraphQLProxy"
 import { gql } from "graphql-request"
 import { AddPersonIPeopleRepo } from "../../../domain/services/ServiceAddPerson"
 import { AddPersonResponse } from "../responses/index"
-import Person from "../../../domain/entities/Person"
+import {Person} from "../../../domain/entities/Person"
 import { DeletePersonIPeopleRepo } from "../../../domain/services/ServiceDeletePerson"
 
 type PeopleRepos = AddPersonIPeopleRepo &

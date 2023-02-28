@@ -1,9 +1,12 @@
-import EmailAddress from "../valueObjects/EmailAddress"
+import EmailAddressSchema from "../valueObjects/EmailAddress"
+import { z } from "zod"
 
-interface Person {
-  id?: number
-  name: string
-  emailAddress?: EmailAddress
-}
+const PersonSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  emailAddress: z.object(EmailAddressSchema).optional(),
+})
 
-export default Person
+export type Person = z.infer<typeof PersonSchema>
+
+export default { PersonSchema }

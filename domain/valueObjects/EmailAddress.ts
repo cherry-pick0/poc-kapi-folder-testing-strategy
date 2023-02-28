@@ -1,6 +1,10 @@
-type EmailAddress = {
-  address: string
-  display_name: string
-}
+import { z } from "zod"
 
-export default EmailAddress
+const EmailAddressSchema = z.object({
+  address: z.string(),
+  display_name: z.string(),
+})
+
+export type EmailAddress = z.infer<typeof EmailAddressSchema>
+
+export default { EmailAddressSchema }

@@ -1,5 +1,5 @@
 import { AddPersonResponse } from "../../app/gateways/responses"
-import Person from "../entities/Person"
+import { Person } from "../entities/Person"
 import { ServiceAddPerson, AddPersonIPeopleRepo } from "./ServiceAddPerson"
 
 describe("Test service for adding a Person", () => {
@@ -9,7 +9,7 @@ describe("Test service for adding a Person", () => {
         return {
           id: person.id,
           name: person.name,
-          email_address: person.emailAddress?.address,
+          email_address: person.emailAddress?.EmailAddressSchema.address,
         }
       },
     }

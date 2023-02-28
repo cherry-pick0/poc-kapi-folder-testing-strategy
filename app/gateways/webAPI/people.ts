@@ -7,7 +7,7 @@ import handleRequest from "../../utils/handleRequest"
 import { GetPeopleResponse, AddPersonResponse } from "../responses/index"
 import ServiceFactory from "../../../domain/services/ServiceFactory"
 import { ServiceAddPerson } from "../../../domain/services/ServiceAddPerson"
-import Person from "../../../domain/entities/Person"
+import { Person } from "../../../domain/entities/Person"
 import { ServiceDeletePerson } from "../../../domain/services/ServiceDeletePerson"
 import { PersonNotFoundError } from "../../../domain/services/ServiceGetPeople"
 

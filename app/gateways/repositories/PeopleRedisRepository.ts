@@ -2,7 +2,7 @@ import { GetPeopleResponse } from "../responses/index"
 import { GetPeopleIPeopleRepo } from "../../../domain/services/ServiceGetPeople"
 import { AddPersonIPeopleRepo } from "../../../domain/services/ServiceAddPerson"
 import { AddPersonResponse } from "../responses/index"
-import Person from "../../../domain/entities/Person"
+import { Person } from "../../../domain/entities/Person"
 import RedisProxy from "../../proxies/RedisProxy"
 import { DeletePersonIPeopleRepo } from "../../../domain/services/ServiceDeletePerson"
 
@@ -35,7 +35,7 @@ const PeopleRedisRepository: PeopleRepos = {
   },
   addPerson: async (person: Person): Promise<AddPersonResponse> => {
     let name = person.name
-    let email = person.emailAddress?.address
+    let email = person.emailAddress?.EmailAddressSchema.address
 
     const redisClient = await RedisProxy()
     redisClient.connect()
