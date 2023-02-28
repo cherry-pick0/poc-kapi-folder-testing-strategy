@@ -1,12 +1,18 @@
 import { GetPeopleResponse } from "../../app/gateways/responses/index"
 
-export type GetPeopleIPeopleRepo = {
-  getPeople(): Promise<GetPeopleResponse>
+export interface GetPeopleIPeopleRepo {
+  getPeople(id?: number): Promise<GetPeopleResponse>
 }
 
+export type GetPeopleRequest = {
+  id?: number
+}
+
+export const PersonNotFoundError = Error
+
 export const ServiceGetPeople = (peopleRepository: GetPeopleIPeopleRepo) => {
-  const execute = () => {
-    return peopleRepository.getPeople()
+  const execute = (request: GetPeopleRequest) => {
+    return peopleRepository.getPeople(request.id)
   }
 
   return {

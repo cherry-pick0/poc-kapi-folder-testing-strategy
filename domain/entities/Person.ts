@@ -1,6 +1,6 @@
 import EmailAddress from "../valueObjects/EmailAddress"
 
-type Person = {
+interface Person {
   id?: number
   name: string
   emailAddress?: EmailAddress

@@ -1,5 +1,5 @@
 import { GetPeopleResponse } from "../../app/gateways/responses"
-import { ServiceGetPeople, GetPeopleIPeopleRepo } from "./ServiceGetPeople"
+import { ServiceGetPeople, GetPeopleIPeopleRepo } from './ServiceGetPeople';
 import Person from "../entities/Person"
 
 describe("Test service for getting a list of people", () => {
@@ -12,7 +12,7 @@ describe("Test service for getting a list of people", () => {
     }
 
     const service = ServiceGetPeople(testPeopleRepo)
-    let data = await service.execute()
+    let data = await service.execute({})
 
     expect(typeof data).toBe("object")
     expect(data).toHaveProperty("allPeople")

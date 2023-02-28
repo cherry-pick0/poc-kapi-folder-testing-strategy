@@ -1,10 +1,10 @@
 import { ServiceGetPeople } from "./ServiceGetPeople"
-import PeopleGraphQLRepository from "../../app/gateways/repositories/PeopleGraphQLRepository"
 import { ServiceAddPerson } from "./ServiceAddPerson"
-import PeopleRedisRepository from '../../app/gateways/repositories/PeopleRedisRepository';
+import { ServiceDeletePerson } from "./ServiceDeletePerson"
+import PeopleRedisRepository from "../../app/gateways/repositories/PeopleRedisRepository"
 
 const getPeople = (args?) => {
-  let service = ServiceGetPeople(PeopleGraphQLRepository)
+  let service = ServiceGetPeople(PeopleRedisRepository)
   return service
 }
 
@@ -13,9 +13,15 @@ const addPerson = (args?) => {
   return service
 }
 
+const deletePerson = (args?) => {
+  let service = ServiceDeletePerson(PeopleRedisRepository)
+  return service
+}
+
 let factories = {
   ServiceGetPeople: getPeople,
   ServiceAddPerson: addPerson,
+  ServiceDeletePerson: deletePerson,
 }
 
 export const ServiceFactory = () => {

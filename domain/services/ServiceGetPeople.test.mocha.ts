@@ -14,7 +14,7 @@ describe("Test service for getting a list of people", () => {
     }
 
     const service = ServiceGetPeople(testPeopleRepo)
-    let data = await service.execute()
+    let data = await service.execute({})
 
     expect(data).to.be.a("object")
     expect(data).to.have.property("allPeople")

@@ -3,6 +3,8 @@ import request from "supertest"
 const app = require("../../../index")
 
 describe("People test flow", () => {
+  let personID = undefined
+
   it("tests GET /people endpoint", async () => {
     const response = await request(app).get("/people")
     expect(response.statusCode).toBe(200)
@@ -22,5 +24,23 @@ describe("People test flow", () => {
     expect(response.body).toHaveProperty("name")
     expect(response.body).toHaveProperty("email_address")
     expect(response.body["name"]).toBe("Rick")
+    personID = response.body["id"]
+  })
+
+  it("tests GET /people/:id endpoint", async () => {
+    const response = await request(app).get("/people/" + personID)
+    expect(response.statusCode).toBe(200)
+    expect(typeof response.body).toBe("object")
+    expect(response.body).toHaveProperty("id")
+    expect(response.body).toHaveProperty("name")
+    expect(response.body["name"]).toBe("Rick")
+  })
+
+  it("tests DELETE /people/:id endpoint", async () => {
+    const response = await request(app).delete("/people/" + personID)
+    expect(response.statusCode).toBe(204)
+
+    const response2 = await request(app).get("/people/" + personID)
+    expect(response2.statusCode).toBe(404)
   })
 })

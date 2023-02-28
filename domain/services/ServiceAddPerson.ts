@@ -1,7 +1,7 @@
 import { AddPersonResponse } from "../../app/gateways/responses/index"
 import Person from "../entities/Person"
 
-export type AddPersonIPeopleRepo = {
+export interface AddPersonIPeopleRepo {
   addPerson(person: Person): Promise<AddPersonResponse>
 }
 
