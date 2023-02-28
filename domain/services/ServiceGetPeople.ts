@@ -16,6 +16,6 @@ export const ServiceGetPeople = (peopleRepository: GetPeopleIPeopleRepo) => {
   }
 
   return {
-    execute: execute,
+    execute: execute
   }
 }

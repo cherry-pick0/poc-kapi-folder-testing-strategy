@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   handleRequest(res, async () => {
     try {
       let service = ServiceFactory().instanceFor(ServiceGetPeople)
-      let request: GetPeopleRequest = { id: req.params.id }
+      let request: GetPeopleRequest = { id: +req.params.id }
       let response: GetPeopleResponse = await service.execute(request)
       let person = response.allPeople.people[0]
       return person
