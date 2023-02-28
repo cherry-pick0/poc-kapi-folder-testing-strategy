@@ -8,14 +8,17 @@
     "start": "npm run compile && node ./dist/index.js",
     "dev": "nodemon index.ts",
     "test.mocha": "mocha '**/*.mocha.ts'",
-    "test.jest": "jest --testMatch='**/*.jest.ts'"
+    "test.jest": "jest --testMatch='**/*.jest.ts'",
+    "docs:yaml": "npx ts-node ./scripts/apidocs.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^4.4.0",
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
+    "openapi3-ts": "^3.2.0",
     "redis": "^4.6.4",
     "zod": "^3.20.6"
   },
