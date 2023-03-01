@@ -3,11 +3,11 @@ import request from "supertest"
 const app = require("../../../index")
 
 describe("People test flow", () => {
-  let personID = undefined
+  let personID = 0
 
   it("tests GET /people endpoint", async () => {
     const response = await request(app).get("/people")
-    expect(response.statusCode).toBe(200)
+    expect(response.status).toBe(200)
     expect(Array.isArray(response.body)).toBeTruthy()
     expect(response.body.length).toBeGreaterThanOrEqual(1)
     expect(typeof response.body[0]).toBe("object")
@@ -17,8 +17,8 @@ describe("People test flow", () => {
 
   it("tests POST /people endpoint", async () => {
     const data = { name: "Rick" }
-    const response = await request(app).post("/people", data)
-    expect(response.statusCode).toBe(201)
+    const response = await request(app).post("/people", () => data)
+    expect(response.status).toBe(201)
     expect(typeof response.body).toBe("object")
     expect(response.body).toHaveProperty("id")
     expect(response.body).toHaveProperty("name")
@@ -29,7 +29,7 @@ describe("People test flow", () => {
 
   it("tests GET /people/:id endpoint", async () => {
     const response = await request(app).get("/people/" + personID)
-    expect(response.statusCode).toBe(200)
+    expect(response.status).toBe(200)
     expect(typeof response.body).toBe("object")
     expect(response.body).toHaveProperty("id")
     expect(response.body).toHaveProperty("name")
@@ -38,9 +38,9 @@ describe("People test flow", () => {
 
   it("tests DELETE /people/:id endpoint", async () => {
     const response = await request(app).delete("/people/" + personID)
-    expect(response.statusCode).toBe(204)
+    expect(response.status).toBe(204)
 
     const response2 = await request(app).get("/people/" + personID)
-    expect(response2.statusCode).toBe(404)
+    expect(response2.status).toBe(404)
   })
 })

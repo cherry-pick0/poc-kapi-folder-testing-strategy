@@ -7,11 +7,18 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "types": ["node", "jest", "mocha"],
+    "types": ["node", "jest", "mocha", "supertest"],
     "skipLibCheck": true,
     "strict": true
   },
   "paths": {
     "@src/*": ["./src/*"]
-  }
+  },
+  "exclude": ["node_modules"],
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
 }
