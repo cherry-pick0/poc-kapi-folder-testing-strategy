@@ -1,17 +1,23 @@
-const { Given, When, Then } = require("@cucumber/cucumber")
-
-const { request } = require("supertest")
+import request from "supertest"
+import { loadFeature, defineFeature } from "jest-cucumber"
+import { Person } from "../../domain/entities/Person"
 
 const app = require("../../index.ts")
+const feature = loadFeature("features/addPerson.feature")
 
-When("we create a person", async function () {
-  // Write code here that turns the phrase above into concrete actions
-  const response = await request(app).get("/people")
-  return response.body
-})
+defineFeature(feature, (test) => {
+  let person: Person = { name: "" }
 
-Then("we should receive", function (dataTable) {
-  // Write code here that turns the phrase above into concrete actions
-  console.log(dataTable)
-  return "pending"
+  test("Add person", ({ given, when, then }) => {
+    when("we create a person", async () => {
+      const data = { name: "Rick" }
+      const response = await request(app).post("/people", () => data)
+      person = response.body
+    })
+
+    then("we should receive", (expectedData: string) => {
+      let expected = JSON.parse(expectedData)
+      expect(expected["name"]).toBe(person.name)
+    })
+  })
 })

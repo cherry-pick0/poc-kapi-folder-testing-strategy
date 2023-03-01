@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js",
@@ -12,7 +12,7 @@
     "test.jest": "jest --testMatch='**/*.jest.ts'",
     "docs:preview": "redocly preview-docs ./api-docs.yml",
     "docs:yaml": "npx ts-node ./scripts/apidocs.ts",
-    "cucumber": "./node_modules/@cucumber/cucumber/bin/cucumber-js --require features/**/*.ts"
+    "test.cucumber.jest": "jest --testMatch='**/*.steps.ts'"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
+    "jest-cucumber": "^3.0.1",
     "openapi3-ts": "^3.2.0",
     "redis": "^4.6.4",
     "zod": "^3.20.6"
