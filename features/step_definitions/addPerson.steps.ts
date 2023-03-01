@@ -1,4 +1,4 @@
-import { When, Then } from "@cucumber/cucumber"
+const { Given, When, Then } = require('@cucumber/cucumber');
 
 When("we create a person", function () {
   // Write code here that turns the phrase above into concrete actions
