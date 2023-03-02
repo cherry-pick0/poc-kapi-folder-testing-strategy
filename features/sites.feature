@@ -4,8 +4,8 @@ Feature: Sites
         When we get a list of sites
         Then we should receive
             | id | name   | displayName | status |
-            | 1  | teste  | teste       | live   |
-            | 2  | teste2 | teste2      | live   |
+            | 1  | test  | test       | live   |
+            | 2  | test2 | test2      | live   |
 
 
     Scenario: Clear cache
