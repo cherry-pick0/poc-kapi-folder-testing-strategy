@@ -3,9 +3,9 @@ Feature: Sites
     Scenario: Get sites
         When we get a list of sites
         Then we should receive
-            |id|name|displayName|status|
-            |1|teste|teste|live|
-            |2|teste2|teste2|live|
+            | id | name   | displayName | status |
+            | 1  | teste  | teste       | live   |
+            | 2  | teste2 | teste2      | live   |
 
 
     Scenario: Clear cache

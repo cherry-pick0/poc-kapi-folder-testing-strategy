@@ -25,5 +25,5 @@ Feature: People
     Scenario: Get people
         When we get a list of people
         Then we should receive
-            |id|name|email_address|
-            |1|Rick||
+            | id | name | email_address |
+            | 1  | Rick |               |
