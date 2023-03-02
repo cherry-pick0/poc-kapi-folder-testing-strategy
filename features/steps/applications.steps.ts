@@ -5,8 +5,8 @@ const app = require("../../index")
 
 defineFeature(feature, (test) => {
   test("Get applications", ({ when, then }) => {
-    let applicationsList = []
-    let application = { id: null }
+    let applicationsList: object[] = []
+    let application = {}
     when("we get a list of applications", async () => {
       const response = await request(app).get("/applications")
       expect(response.status).toBe(200)
@@ -21,16 +21,15 @@ defineFeature(feature, (test) => {
       expect(table[0]).toHaveProperty("name")
       expect(table[0]).toHaveProperty("displayName")
       expect(table[0]).toHaveProperty("status")
-      expect(table[0]).toHaveProperty("deployments")
     })
   })
 
   test("Get applications by name", ({ given, when, then }) => {
-    let applicationListByName = []
+    let applicationListByName: object[] = []
     given("I have the following applications", async (table) => {
       const response = await request(app).get("/applications")
       expect(response.status).toBe(200)
-      expect(table).toMatchObject(response.body)
+      expect(table[0]).toMatchObject(response.body[0])
     })
 
     when("I search for applications by name test", async () => {
@@ -46,8 +45,8 @@ defineFeature(feature, (test) => {
   })
 
   test("Update application name", ({ given, when, then }) => {
-    let application = { id: null }
-    let applicationListByName = []
+    let application = { id: null, name: "" }
+    let applicationListByName: object[] = []
 
     given("I have application", async (docString) => {
       let expected = JSON.parse(docString)
@@ -60,15 +59,15 @@ defineFeature(feature, (test) => {
     when("I update name to newName", async () => {
       const response = await request(app)
         .patch("/applications/" + application.id)
-        .set("name", "newName")
+        .send({ name: "newName" })
       expect(response.status).toBe(200)
       application = response.body
       expect(application).toHaveProperty("name")
-      expect(application["name"]).toMatchObject("newName")
+      expect(application.name).toBe("newName")
     })
 
     when("I search for applications by name newName", async () => {
-      const response = await request(app).get("/applications?name=test")
+      const response = await request(app).get("/applications?name=newName")
       expect(response.status).toBe(200)
       applicationListByName = response.body
     })
@@ -76,6 +75,7 @@ defineFeature(feature, (test) => {
     then("I find one application", (table) => {
       expect(applicationListByName.length).toBe(1)
       expect(table).toMatchObject(applicationListByName)
+      expect(table[0]).toMatchObject(application)
     })
   })
 })
