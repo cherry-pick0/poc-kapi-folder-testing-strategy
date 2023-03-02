@@ -2,10 +2,15 @@ import request from "supertest"
 import { loadFeature, defineFeature } from "jest-cucumber"
 import { Person } from "../../domain/entities/Person"
 
-const app = require("../../index.ts")
+const { app, server } = require("../../index")
+
 const feature = loadFeature("features/people.feature")
 
 defineFeature(feature, (test) => {
+  afterAll(async () => {
+    server.close()
+  })
+
   let personCreated: Person = { name: "" }
   let personById: Person = { name: "" }
   let peopleList: Person[] = []
