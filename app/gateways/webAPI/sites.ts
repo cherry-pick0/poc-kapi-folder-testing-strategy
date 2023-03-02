@@ -35,13 +35,13 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id/clear_cache", async (req, res) => {
   handleRequest(res, async () => {
-    res.status(200).send({})
+    res.status(200).send({"success": true})
   })
 })
 
 router.put("/:id/restart_php_engine", async (req, res) => {
   handleRequest(res, async () => {
-    res.status(200).send({})
+    res.status(200).send({"success": true})
   })
 })
 

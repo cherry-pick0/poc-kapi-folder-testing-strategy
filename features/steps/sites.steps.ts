@@ -33,14 +33,16 @@ defineFeature(feature, (test) => {
     })
 
     when("we clear cache", async () => {
-      const response = await request(app).put("/sites/" + site.id + "/clear_cache")
+      const response = await request(app).put(
+        "/sites/" + site.id + "/clear_cache"
+      )
       expect(response.status).toBe(200)
       responseData = response.body
     })
 
     then("we should receive", (docString) => {
       let expected = JSON.parse(docString)
-      expect(responseData).toBe(expected)
+      expect(responseData).toMatchObject(expected)
     })
   })
 
@@ -52,11 +54,16 @@ defineFeature(feature, (test) => {
     })
 
     when("we restart PHP engine", async () => {
-      const response = await request(app).put("/sites/" + site.id + "/restart_php_engine")
+      const response = await request(app).put(
+        "/sites/" + site.id + "/restart_php_engine"
+      )
       expect(response.status).toBe(200)
       responseData = response.body
     })
 
-    then("we should receive", (docString) => {})
+    then("we should receive", (docString) => {
+      let expected = JSON.parse(docString)
+      expect(responseData).toMatchObject(expected)
+    })
   })
 })
