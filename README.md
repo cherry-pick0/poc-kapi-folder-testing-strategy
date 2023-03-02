@@ -11,6 +11,9 @@ PoC: KAPI Folder structure &amp; Testing strategy
     npm run test.mocha
     npm run test.jest
 
+    # BDD tests
+    npm run test.cucumber.jest
+
 ## Notes
 
 - try out mocha&chai and jest + compare (write couple of tests for the same functionality)

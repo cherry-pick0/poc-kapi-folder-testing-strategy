@@ -1,7 +1,7 @@
-Feature: Applications
+Feature: Sites
 
-    Scenario: Get applications
-        When we get a list of applications
+    Scenario: Get sites
+        When we get a list of sites
         Then we should receive
             |id|name|displayName|status|
             |1|teste|teste|live|

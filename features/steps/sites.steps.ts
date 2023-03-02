@@ -1,19 +1,21 @@
 import request from "supertest"
 import { loadFeature, defineFeature } from "jest-cucumber"
-const feature = loadFeature("features/applications.feature")
+const feature = loadFeature("features/sites.feature")
 const app = require("../../index")
 
 defineFeature(feature, (test) => {
-  let applicationsList = []
+  let sitesList, site = null
 
-  test("Get applications", ({ when, then }) => {
-    when("we get a list of applications", async () => {
-      const response = await request(app).get("/applications")
-      applicationsList = response.body
+  test("Get sites", ({ when, then }) => {
+    when("we get a list of sites", async () => {
+      const response = await request(app).get("/sites")
+      sitesList = response.body
     })
 
     then("we should receive", (table) => {
-      expect(Array.isArray(table)).toBeTruthy()
+      expect(Array.isArray(sitesList)).toBeTruthy()
+      expect(sitesList.length).toBeGreaterThan(0)
+      site = sitesList[0]
       expect(table[0]).toHaveProperty("id")
       expect(table[0]).toHaveProperty("name")
       expect(table[0]).toHaveProperty("displayName")
@@ -22,9 +24,13 @@ defineFeature(feature, (test) => {
   })
 
   test("Clear cache", ({ given, when, then }) => {
-    given("the site exists", () => {})
+    given("the site exists", () => {
+      expect(site).toBeDefined()
+    })
 
-    when("we clear cache", () => {})
+    when("we clear cache", () => {
+      return "pending"
+    })
 
     then("we should receive", (docString) => {})
   })
