@@ -24,18 +24,12 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   handleRequest(res, async () => {
-    try {
-      let service = ServiceFactory().instanceFor(ServiceGetPeople)
-      let request: GetPeopleRequest = { id: +req.params.id }
-      let response: GetPeopleResponse = await service.execute(request)
-      let person = response.allPeople.people[0]
-      return person
-    } catch (e) {
-      if (e instanceof PersonNotFoundError) {
-        res.status(404).send()
-      }
-      throw e
-    }
+    let service = ServiceFactory().instanceFor(ServiceGetPeople)
+    let request: GetPeopleRequest = { id: +req.params.id }
+    let response: GetPeopleResponse = await service.execute(request)
+    let person = response.allPeople.people[0]
+    if (!person) res.status(404).send()
+    return person
   })
 })
 

@@ -1,13 +1,9 @@
 import request from "supertest"
 import { loadFeature, defineFeature } from "jest-cucumber"
-import { app, server } from "../../index"
 const feature = loadFeature("features/applications.feature")
+const app = require("../../index")
 
 defineFeature(feature, (test) => {
-  afterAll(async () => {
-    server.close()
-  })
-
   let applicationsList = []
 
   test("Get applications", ({ when, then }) => {

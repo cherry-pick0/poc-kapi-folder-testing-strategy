@@ -6,11 +6,12 @@ let app = express()
 app.use(json())
 app.use(routes)
 
-let server = app.listen(4000)
-
-console.log("Running a server at http://localhost:4000")
+if (process.env.NODE_ENV !== "test") {
+  app.listen(4000, () => {
+    console.log("Running a server at http://localhost:4000")
+  })
+}
 
 writeDocumentation()
 
-//module.exports = app, server // for testing
-export {app, server}
+module.exports = app // for testing
