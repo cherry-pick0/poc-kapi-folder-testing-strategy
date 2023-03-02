@@ -15,6 +15,7 @@ defineFeature(feature, (test) => {
     when("we create a person", async () => {
       const data = { name: "Rick" }
       const response = await request(app).post("/people", () => data)
+      expect(response.status).toBe(201)
       personCreated = response.body
     })
 
@@ -27,6 +28,7 @@ defineFeature(feature, (test) => {
   test("Get person", ({ when, then }) => {
     when("we get a person by ID", async () => {
       const response = await request(app).get("/people/" + personCreated.id)
+      expect(response.status).toBe(200)
       personById = response.body
     })
 
@@ -42,6 +44,7 @@ defineFeature(feature, (test) => {
   test("Get people", ({ when, then }) => {
     when("we get a list of people", async () => {
       const response = await request(app).get("/people")
+      expect(response.status).toBe(200)
       peopleList = response.body
     })
 
